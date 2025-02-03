@@ -1,0 +1,57 @@
+name: fitness_app
+description: "Mobile app for fitness and health."
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  firebase_core: ^3.10.1
+  logger: ^2.5.0
+  flutter_bloc: ^9.0.0
+  dio: ^5.7.0
+  firebase_auth: ^5.4.1
+  flutter_native_splash: ^2.4.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter.ttf
+        - asset: assets/fonts/Inter-Black.otf
+          weight: 900
+        - asset: assets/fonts/Inter-Medium.otf
+          weight: 500
+
+    - family: Lexend
+      fonts:
+        - asset: assets/fonts/Lexend.ttf
+        - asset: assets/fonts/Lexend-Black.ttf
+          weight: 900
+
+  assets:
+    - assets/fonts/Inter.ttf
+    - assets/fonts/Inter-Black.otf
+    - assets/fonts/Lexend.ttf
+    - assets/fonts/Lexend-Black.ttf
+    - assets/fonts/Inter-Medium.otf
+
+flutter_native_splash:
+  color: "#F1EDED" # Цвет фона, совпадающий с нативным
+  image: assets/flutter_splash4x.png
+  ios: true # генерацию для iOS
+  android: false # Отключаем для Android
+  web: false # Отключаем для Web
