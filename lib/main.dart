@@ -6,6 +6,7 @@ import 'package:fitness_app/features/survey/screens/birthdate_screen.dart';
 import 'package:fitness_app/features/survey/screens/gender_screen.dart';
 import 'package:fitness_app/features/survey/screens/goal_screen.dart';
 import 'package:fitness_app/features/survey/screens/height_screen.dart';
+import 'package:fitness_app/features/survey/screens/weight_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -73,6 +74,7 @@ class MyApp extends StatelessWidget {
             '/gender-screen': (context) => const GenderScreen(),
             '/birthdate-screen': (context) => const BirthdateScreen(),
             '/height-screen': (context) => const HeightScreen(),
+            '/weight-screen': (context) => const WeightScreen(),
           },
         ),
       ),

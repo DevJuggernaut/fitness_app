@@ -1,26 +1,27 @@
 import 'package:fitness_app/features/survey/widgets/ContinueButton.dart';
-import 'package:fitness_app/features/survey/widgets/HeightPicker.dart';
+import 'package:fitness_app/features/survey/widgets/WeightPicker.dart';
 import 'package:fitness_app/features/survey/widgets/SurveyAppBar.dart';
 import 'package:fitness_app/features/widgets/skip_button.dart';
 import 'package:flutter/material.dart';
 
-class HeightScreen extends StatefulWidget {
-  const HeightScreen({super.key});
+class WeightScreen extends StatefulWidget {
+  const WeightScreen({super.key});
 
   @override
-  State<HeightScreen> createState() => _HeightScreenState();
+  State<WeightScreen> createState() => _WeightScreenState();
 }
 
-class _HeightScreenState extends State<HeightScreen> {
-  int _selectedHeight = 185;
-  HeightUnit _selectedUnit = HeightUnit.cm; // Состояние выбранной единицы
+class _WeightScreenState extends State<WeightScreen> {
+  int _selectedWeight = 70; // Начальное значение веса
+  WeightUnit _selectedUnit =
+      WeightUnit.kg; // Состояние выбранной единицы измерения
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF1EDED),
       appBar: SurveyAppBar(
-        progress: 0.68,
+        progress: 0.85,
         left: Padding(
           padding: const EdgeInsets.only(left: 23),
           child: BackButton(
@@ -39,7 +40,7 @@ class _HeightScreenState extends State<HeightScreen> {
           children: [
             const SizedBox(height: 63),
             const Text(
-              'What’s Your Height?',
+              'What’s Your Current Weight?',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 36,
@@ -49,14 +50,14 @@ class _HeightScreenState extends State<HeightScreen> {
               ),
             ),
             const SizedBox(height: 20),
-            // Переключатель единиц измерения (cm / ft/in)
+            // Переключатель единиц измерения (kg / lbs)
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 GestureDetector(
                   onTap: () {
                     setState(() {
-                      _selectedUnit = HeightUnit.cm;
+                      _selectedUnit = WeightUnit.kg;
                     });
                   },
                   child: Container(
@@ -64,13 +65,13 @@ class _HeightScreenState extends State<HeightScreen> {
                     height: 41,
                     width: 86,
                     decoration: BoxDecoration(
-                      color: _selectedUnit == HeightUnit.cm
-                          ? Color(0xFF999494)
+                      color: _selectedUnit == WeightUnit.kg
+                          ? const Color(0xFF999494)
                           : const Color(0xFFC7C1C1),
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: Text(
-                      'cm',
+                    child: const Text(
+                      'kg',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 16,
@@ -84,7 +85,7 @@ class _HeightScreenState extends State<HeightScreen> {
                 GestureDetector(
                   onTap: () {
                     setState(() {
-                      _selectedUnit = HeightUnit.ftin;
+                      _selectedUnit = WeightUnit.lbs;
                     });
                   },
                   child: Container(
@@ -92,13 +93,13 @@ class _HeightScreenState extends State<HeightScreen> {
                     height: 41,
                     width: 86,
                     decoration: BoxDecoration(
-                      color: _selectedUnit == HeightUnit.ftin
-                          ? Color(0xFF999494)
+                      color: _selectedUnit == WeightUnit.lbs
+                          ? const Color(0xFF999494)
                           : const Color(0xFFC7C1C1),
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: Text(
-                      'ft/in',
+                    child: const Text(
+                      'lbs',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 16,
@@ -111,19 +112,19 @@ class _HeightScreenState extends State<HeightScreen> {
               ],
             ),
             const SizedBox(height: 20),
-            // Передаём выбранную единицу в HeightPicker
-            HeightPicker(
-              initialHeight: 170,
-              heightUnit: _selectedUnit,
-              onHeightChanged: (height) {
+            // Передаём выбранную единицу в WeightPicker
+            WeightPicker(
+              initialWeight: 70,
+              weightUnit: _selectedUnit,
+              onWeightChanged: (weight) {
                 setState(() {
-                  _selectedHeight = height;
+                  _selectedWeight = weight;
                 });
               },
             ),
             const SizedBox(height: 215),
             ContinueButton(
-              onPressed: () => Navigator.pushNamed(context, '/weight-screen'),
+              onPressed: () => Navigator.pushNamed(context, '/home'),
             ),
           ],
         ),

@@ -31,7 +31,7 @@ class _GoalScreenState extends State<GoalScreen> {
       child: Scaffold(
         backgroundColor: const Color(0xFFF1EDED),
         appBar: SurveyAppBar(
-          progress: 0.2, // пример: 20% заполнения
+          progress: 0.17, // пример: 20% заполнения
           right: SkipButton(
             onPressed: () => Navigator.pushNamed(context, '/home'),
             rightPadding: 23,

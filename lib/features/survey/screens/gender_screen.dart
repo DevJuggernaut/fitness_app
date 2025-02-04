@@ -19,7 +19,7 @@ class _GenderScreenState extends State<GenderScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFFF1EDED),
       appBar: SurveyAppBar(
-        progress: 0.4,
+        progress: 0.34,
         left: Padding(
           padding: const EdgeInsets.only(left: 23),
           child: BackButton(
